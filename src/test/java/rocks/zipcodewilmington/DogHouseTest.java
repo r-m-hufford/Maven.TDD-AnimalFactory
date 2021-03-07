@@ -1,5 +1,7 @@
 package rocks.zipcodewilmington;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
@@ -20,7 +22,6 @@ public class DogHouseTest {
     // TODO - Create tests for `void remove(Dog dog)`
     // TODO - Create tests for `Dog getDogById(Integer id)`
     // TODO - Create tests for `Integer getNumberOfDogs()`
-
     private DogHouse doghouse = new DogHouse();
 
     @Test
@@ -36,6 +37,7 @@ public class DogHouseTest {
 
         // Then
         DogHouse.getNumberOfDogs();
+        doghouse.clear();
     }
 
     @Test
@@ -44,6 +46,7 @@ public class DogHouseTest {
         doghouse.add(scotch);
 
         Assert.assertEquals(doghouse.getNumberOfDogs(), (Integer) 1);
+        doghouse.clear();
 
     }
 
@@ -54,17 +57,22 @@ public class DogHouseTest {
         doghouse.add(scotch);
         doghouse.remove(scotch);
 
-        Assert.assertEquals(doghouse.getNumberOfDogs(), (Integer) 0);
+        Integer numberOfDogs = doghouse.getNumberOfDogs();
+
+        Assert.assertEquals(numberOfDogs, (Integer) 0);
+        doghouse.clear();
     }
 
 
     @Test
     public void removeDogByIDTest() {
-        Dog fern = new Dog("fern", null, 1776);
+        Dog fern = new Dog("fern", new Date(), 1776);
         doghouse.add(fern);
         doghouse.remove(1776);
+        Integer numberOfDogs = doghouse.getNumberOfDogs();
 
-        Assert.assertEquals(doghouse.getNumberOfDogs(), (Integer) 0);
+        Assert.assertEquals(numberOfDogs, (Integer) 0);
+        doghouse.clear();
     }
 
 
@@ -76,7 +84,8 @@ public class DogHouseTest {
         doghouse.add(milo);
         doghouse.add(otis);
 
-        Assert.assertEquals(doghouse.getDogById(1984), otis);
+        Assert.assertTrue(doghouse.getDogById(1984) == otis);
+        doghouse.clear();
     }
 
 
@@ -93,5 +102,6 @@ public class DogHouseTest {
         doghouse.add(fern);
 
         Assert.assertEquals(doghouse.getNumberOfDogs(), (Integer) 4);
+        doghouse.clear();
     }
 }

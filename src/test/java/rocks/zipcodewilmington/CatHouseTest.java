@@ -24,12 +24,14 @@ public class CatHouseTest {
     public void addCatTest() {
         cathouse.add(dumbCat);
         Assert.assertEquals(cathouse.getNumberOfCats(), (Integer) 1);
+        cathouse.clear();
     }
 
     @Test
     public void removeCatTest() {
         cathouse.remove(dumbCat);
         Assert.assertEquals(cathouse.getNumberOfCats(), (Integer) 0);
+        cathouse.clear();
     }
 
     @Test
@@ -38,6 +40,7 @@ public class CatHouseTest {
         cathouse.add(smallCat);
         cathouse.remove(567);
         Assert.assertEquals(cathouse.getNumberOfCats(), (Integer) 0);
+        cathouse.clear();
     }
 
     @Test
@@ -48,6 +51,7 @@ public class CatHouseTest {
         cathouse.add(smallCat);
         cathouse.add(fatCat);
         Assert.assertEquals(cathouse.getCatById(567), smallCat);
+        cathouse.clear();
     }
 
     @Test
@@ -64,5 +68,6 @@ public class CatHouseTest {
         cathouse.add(dumbCat);
 
         Assert.assertEquals(cathouse.getNumberOfCats(), (Integer) 5);
+        cathouse.clear();
     }
 }
