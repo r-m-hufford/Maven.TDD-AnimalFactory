@@ -61,7 +61,8 @@ public class DogTest {
 
     @Test
     public void foodTest() {
-
+        Dog dog = new Dog(null,null,null);
+        Assert.assertTrue(dog.getNumberOfMealsEaten() == 0);
     }
 
     @Test

@@ -76,6 +76,9 @@ public class CatTest {
 
     @Test
     public void eatTest() {
+        Assert.assertTrue(cat.getNumberOfMealsEaten() == 0);
+
+
     }
 
     @Test
