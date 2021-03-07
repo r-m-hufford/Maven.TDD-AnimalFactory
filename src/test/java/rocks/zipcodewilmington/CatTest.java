@@ -2,7 +2,9 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
@@ -17,7 +19,7 @@ public class CatTest {
     // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
-
+    Cat cat = new Cat("Jarvis", new Date(), 0);
 
     @Test
     public void constructorTest() {
@@ -39,5 +41,63 @@ public class CatTest {
         Assert.assertEquals(givenBirthDate, retrievedBirthDate);
         Assert.assertEquals(givenId, retrievedId);
     }
+
+    @Test
+    public void setNameTest() {
+        //given
+            //The cat constructed in the field
+        //when
+        cat.setName("Garfield");
+        //then
+        Assert.assertEquals(cat.getName(), "Garfield");
+    }
+
+    @Test
+    public void setBirthDateTest() {
+        //given
+            //The cat constructed in the field
+        Date newDate = new Date();
+        //when
+        cat.setBirthDate(newDate);
+        //then
+        Assert.assertEquals(cat.getBirthDate(), newDate);
+    }
+
+    @Test
+    public void speakTest() {
+        //given
+            //The cat constructed in the field
+        //when
+
+        //then
+        Assert.assertEquals(cat.speak(), "meow!");
+
+    }
+
+    @Test
+    public void eatTest() {
+    }
+
+    @Test
+    public void getIdTest() {
+        //given
+            //cat up there
+        //when
+        Integer id = cat.getId();
+
+        //then
+        Assert.assertEquals(id, cat.getId());
+    }
+
+    @Test
+    public void animalInstanceOfTest() {
+        Assert.assertTrue(cat instanceof Animal);
+    }
+
+    @Test
+    public void mammalInstanceOfTest() {
+        Assert.assertTrue(cat instanceof Mammal);
+    }
+
 
 }
